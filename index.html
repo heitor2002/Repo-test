@@ -24,20 +24,40 @@
 
                     <ul dataHero="listHero"></ul>
 
-                </article>
+                </article><!--cards-->
 
-        </section>
+        </section><!--characters-->
 
         <section class="events">
             <div class="container">
                 <div class="content_event">
-                    <div class="w50_content"></div>
-                    <div class="w50_img"></div>
-                </div>
+                    <div class="w50_content" fade-animation="left">
+                        <h2 title_event="main-title">Lorem Ipsum</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sem ligula, ornare vitae pharetra sollicitudin, consectetur eget quam. Vestibulum aliquam a erat vel maximus. Curabitur ultricies odio hendrerit nunc pretium, non scelerisque nisi interdum. Ut dapibus lectus mollis felis rutrum rutrum. Duis semper imperdiet enim, non pharetra libero tincidunt non. Praesent risus ligula, euismod quis nibh sed, laoreet elementum nisl. Proin volutpat placerat placerat.
+                        <br>
+                        <br>
+                            Cras laoreet id est ut vehicula. Sed id placerat ipsum. In eget vehicula mi, vel mattis arcu. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Sed blandit, nulla non rutrum auctor, orci diam pretium ipsum, ut cursus eros velit sed ex. Vestibulum sed sollicitudin dolor. Quisque imperdiet purus ac ante ornare, maximus sodales urna suscipit.</p>
+                    </div><!--w50_content-->
+                    <div class="w50_img" fade-animation="right" image_event="main-image">
+                        <img src="http://i.annihil.us/u/prod/marvel/i/mg/c/80/51c9ec5e90de1.jpg" alt="Event">
+                    </div><!--w50_img-->
+                </div><!--content_event-->
+            </div><!--container-->
+            <div class="listEvents">
+                <div class="container">
+                    <h2 fade-animation="left">View Events</h2>
+                        <ul data-events="data-events" fade-animation="top"></ul>
+                </div><!--container-->             
+            </div><!--listEvents-->
+        </section><!--events-->
+        <footer>
+            <div class="container">
+                <h2>By: Heitor Montagnini</h2>
             </div>
-        </section>
+        </footer>
        
-        <script src="js/functions.js"></script>
+        <script src="js/fetchApi.js"></script>
+        <script src="js/animation.js"></script>
         
     </body>
 </html>

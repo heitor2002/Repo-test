@@ -13,17 +13,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: transparent;
-    border-radius: 10px;
+  background-color: transparent;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-    background: #ffffff;
+  width: 6px;
+  height: 6px;
+  background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: #dad7d7;
-    border-radius: 10px;
+  background: #ccc;
+  border-radius: 10px;
 }
 
 .container {
@@ -41,7 +41,6 @@ header.banner {
 header.banner .content_banner {
   width: 100%;
   height: 100%;
-  background-color: aqua;
   background-image: url("https://images7.alphacoders.com/102/thumb-1920-1027449.jpg");
   background-size: cover;
   display: flex;
@@ -76,7 +75,6 @@ header.banner .content_banner_opacity:hover {
 
 section.characters {
   padding: 100px 0;
-  /* background-color: aqua; */
 }
 
 section.characters .container {
@@ -200,23 +198,132 @@ section.characters
 }
 
 section.events {
-  padding: 20px 0;
-  background-color: rgb(36, 36, 37);
+  padding-top: 20px;
 }
 
 section.events .container .content_event {
   width: 100%;
   display: flex;
+  justify-content: space-around;
 }
 
 section.events .container .content_event .w50_content {
   width: 50%;
-  height: 50px;
-  background-color: aqua;
+  max-width: 500px;
+  padding: 10px 2%;
+}
+
+section.events .container .content_event .w50_content h2 {
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: rgb(36, 36, 37);
+}
+
+section.events .container .content_event .w50_content p {
+  font-size: 15px;
+  color: rgb(36, 36, 37);
 }
 
 section.events .container .content_event .w50_img {
   width: 50%;
-  height: 50px;
-  background-color: antiquewhite;
+  text-align: center;
+}
+
+section.events .container .content_event .w50_img img {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 4px 10px 5px 1px rgba(27, 26, 33, 0.5);
+}
+
+section.events .listEvents{
+  width: 100%;
+  padding: 50px 2%;
+  margin-top: 50px;
+  text-align: center;
+  color: white;
+  font-size: 48px;
+  background-color: rgb(21, 21, 22);
+}
+
+section.events .listEvents ul[data-events="data-events"]{
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: center;
+  margin-top: 50px;
+}
+
+section.events .listEvents ul[data-events="data-events"] li{
+  width: 100%;
+  max-width: 300px;
+  margin: 5px;
+}
+
+section.events .listEvents ul[data-events="data-events"] li:hover{
+  transform: scale(1.03) rotateZ(2deg);
+  -webkit-transform: scale(1.07) rotateZ(2deg);
+  transition: .3s;
+}
+
+section.events .listEvents ul[data-events="data-events"] li img{
+  width: 100%;
+  cursor: pointer;
+}
+
+[fade-animation] {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+[fade-animation].show_fade {
+  opacity: 1;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
+}
+
+[fade-animation="top"] {
+  -webkit-transform: translateY(-50px);
+  transform: translateY(-50px);
+}
+
+[fade-animation="left"] {
+  -webkit-transform: translateX(-50px);
+  transform: translateX(-50px);
+}
+
+[fade-animation="right"] {
+  -webkit-transform: translateX(-50px);
+  transform: translateX(50px);
+}
+
+footer{
+  width: 100%;
+  background-color: rgb(13, 13, 14);
+  padding: 20px 2%;
+  text-align: center;
+}
+
+footer h2{
+  font-size: 18px;
+  font-weight: 300;
+  color: #ccc;
+}
+
+@media screen and (max-width: 860px) {
+  section.events .container .content_event {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  section.events .container .content_event .w50_content {
+    width: 100%;
+  }
+
+  section.events .container .content_event .w50_img {
+    width: 100%;
+  }
 }

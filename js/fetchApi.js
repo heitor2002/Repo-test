@@ -3,11 +3,11 @@ const publicKey = "f7ee4194bd09a1d79471d9f3647c9b3f";
 const globalKey = "4bf72640b81958b3ba84ede604221d45";
 
 const fetchHeroes = () => {
-  const getUrl = (id) =>
+  const getHeroUrl = (id) =>
     `http://gateway.marvel.com/v1/public/characters/${id}?ts=${timeStamp}&apikey=${publicKey}&hash=${globalKey}`;
   const arrayHeroes = [];
   for (let i = 1011333; i <= 1011353; i++) {
-    arrayHeroes.push(fetch(getUrl(i)).then((resp) => resp.json()));
+    arrayHeroes.push(fetch(getHeroUrl(i)).then((resp) => resp.json()));
   }
 
   Promise.all(arrayHeroes).then((heroes) => {
@@ -27,7 +27,7 @@ const fetchHeroes = () => {
             <li class="card">
                 <div class="card-flip">
                     <div class="front-card">
-                        <img src="${wikiHero.thumbnail.path}.jpg" alt="">
+                        <img src="${wikiHero.thumbnail.path}.jpg" alt="Hero">
                     </div>
                     <div class="back-card">
                         <h2>${wikiHero.name}</h2>
@@ -37,7 +37,7 @@ const fetchHeroes = () => {
                 </div>
             </li>
             `;
-      console.log(hero);
+      // console.log(hero);
       return accumulator;
     }, "");
 
@@ -48,26 +48,29 @@ const fetchHeroes = () => {
   });
 };
 
-const letterAnimation = () => {
-  const title = document.getElementById("title_marvel");
-  const titleValue = "Marvel API";
-  var counter = 0;
+const fetchEvents = () => {
+  const getEventUrl = `http://gateway.marvel.com/v1/public/events?ts=${timeStamp}&apikey=${publicKey}&hash=${globalKey}`;
 
-  setInterval(() => {
-    if (counter <= titleValue.length) {
-      counter++;
-    } else if (counter > titleValue.length) {
-      counter = 0;
-    }
-    const titleSlice = titleValue.slice(0, counter);
-    title.innerHTML = titleSlice;
-  }, 400);
+  const arrayEvents = [];
+  arrayEvents.push(
+    fetch(getEventUrl)
+      .then((resp) => resp.json())
+      .then((data) => data.data.results)
+  );
+  // console.log(arrayEvents)
+  Promise.all(arrayEvents).then((events) => {
+    events.map((arrEvent) => {
+      const listEvents = arrEvent.reduce((accumulator, infoEvent) => {
+        accumulator += `
+          <li><a href="${infoEvent.urls[0].url}"><img src="${infoEvent.thumbnail.path}.jpg" alt="Event"></a></li>
+          `;
+        return accumulator;
+      }, "");
+      const ulEventsList = document.querySelector('[data-events="data-events"]')
+      ulEventsList.innerHTML = listEvents
+    });
+  });
 };
 
 fetchHeroes();
-
-letterAnimation();
-
-// const url = `http://gateway.marvel.com/v1/public/events?ts=${timeStamp}&apikey=${publicKey}&hash=${globalKey}`
-
-// fetch(url).then(resp => resp.json()).then(data => console.log(data))
+fetchEvents();
