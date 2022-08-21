@@ -17,7 +17,7 @@ O projeto se baseia no consumo e manipulação da API disponibilizada pela (http
 
 ## Descrição do projeto
 
-A página se inicia com um banner juntamente do título do projeto, sendo que o título possúi uma animação em JavaScript.
+A página se inicia com um banner juntamente do título do projeto, sendo que o título possui uma animação em JavaScript.
 
 Na sessão seguinte é apresentado um caroussel simples com alguns cards; esses cards são elementos 3D animados por meio do efeito de hover, que quando ativado apresenta o personagem em questão, juntamente de botões que acessam um link com as respectivas informações do personagem.
 
